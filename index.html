@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 183 Day Rule: How Tax Residence Is Actually Decided</title>
+<meta name="description" content="How the 183 day tax residence test works, why the counting rules differ by country, the US substantial presence formula, treaty tie breakers, and the Schengen 90 in 180 rule.">
+<link rel="canonical" href="https://example.github.io/info/days/180-days-from-today/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The 183 Day Rule: How Tax Residence Is Actually Decided">
+<meta property="og:description" content="How the 183 day tax residence test works, why the counting rules differ by country, the US substantial presence formula, treaty tie breakers, and the Schengen 90 in 180 rule.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<!--
+  INTERNAL LINKING
+  ----------------
+  Every <strong class="xlink" data-link="SLUG"> below is a planned anchor.
+  After you deploy the other pages, wrap it in a link, e.g.
+
+    <a href="https://example.com/info/days/180-days-from-today/"><strong class="xlink">...</strong></a>
+
+  The "Related" list at the bottom has href="#" placeholders with the same slugs.
+-->
+<style>
+:root{
+  --paper:#F3F5F2; --card:#FFFFFF; --ink:#16231F; --ink-soft:#4B5A54;
+  --rule:#D3DBD5; --deep:#0E5347; --deep-soft:#E3EEE9; --mark:#A85C0B; --mark-soft:#FBF0DF;
+  --maxw:70ch;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Charter","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:18px; line-height:1.68; text-rendering:optimizeLegibility;
+}
+a{color:var(--deep)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--mark); outline-offset:3px; border-radius:2px}
+.wrap{max-width:1140px; margin:0 auto; padding:0 24px}
+
+/* header */
+.top{border-bottom:1px solid var(--rule); background:var(--card)}
+.top .wrap{display:flex; gap:18px; align-items:baseline; justify-content:space-between; padding-top:16px; padding-bottom:16px}
+.brand{font-size:17px; font-weight:600; letter-spacing:.01em; text-decoration:none; color:var(--ink)}
+.brand span{color:var(--deep)}
+.top nav a{font-size:15px; margin-left:18px; color:var(--ink-soft); text-decoration:none}
+.top nav a:hover{color:var(--deep); text-decoration:underline}
+
+/* hero */
+.hero{background:var(--card); border-bottom:1px solid var(--rule); padding:44px 0 34px}
+.hero h1{font-size:clamp(30px,5vw,46px); line-height:1.12; margin:0 0 14px; font-weight:600; letter-spacing:-.015em; max-width:22ch}
+.dek{font-size:20px; color:var(--ink-soft); margin:0; max-width:62ch}
+.byline{margin:20px 0 0; font-size:14.5px; color:var(--ink-soft)}
+.byline b{font-weight:600; color:var(--ink)}
+
+/* day strip */
+.strip{margin:30px 0 0; padding:18px 18px 14px; background:var(--deep-soft); border:1px solid var(--rule); border-radius:4px}
+.strip-head{display:flex; justify-content:space-between; font-size:14px; color:var(--ink-soft); margin-bottom:10px}
+.strip-head b{color:var(--deep); font-weight:600}
+.ticks{display:flex; gap:2px; align-items:flex-end; height:38px}
+.tick{flex:1 1 auto; min-width:1px; background:#9FBCB2; height:12px; border-radius:1px; transform-origin:bottom;
+      animation:grow .5s ease-out both}
+.tick.week{background:#5E8F82; height:22px}
+.tick.month{background:var(--deep); height:32px}
+.tick.last{background:var(--mark); height:38px; min-width:4px}
+@keyframes grow{from{transform:scaleY(.15); opacity:.2} to{transform:scaleY(1); opacity:1}}
+@media (prefers-reduced-motion:reduce){.tick{animation:none}}
+.strip-foot{margin-top:9px; font-size:13.5px; color:var(--ink-soft)}
+
+/* layout */
+.cols{display:grid; grid-template-columns:230px minmax(0,1fr); gap:54px; padding:40px 0 10px; align-items:start}
+@media (max-width:880px){.cols{grid-template-columns:1fr; gap:0}}
+.toc{position:sticky; top:24px; font-size:15px; line-height:1.45}
+.toc h2{font-size:14px; font-weight:600; margin:0 0 10px; color:var(--ink-soft)}
+.toc ol{list-style:none; margin:0; padding:0; border-left:1px solid var(--rule)}
+.toc li{margin:0}
+.toc a{display:block; padding:6px 0 6px 14px; margin-left:-1px; border-left:2px solid transparent;
+       color:var(--ink-soft); text-decoration:none}
+.toc a:hover{color:var(--deep)}
+.toc a.on{color:var(--deep); border-left-color:var(--deep); font-weight:600}
+@media (max-width:880px){.toc{display:none}}
+
+article{max-width:var(--maxw)}
+article h2{font-size:27px; line-height:1.22; margin:42px 0 12px; font-weight:600; letter-spacing:-.01em; scroll-margin-top:22px}
+article h3{font-size:20.5px; margin:26px 0 8px; font-weight:600}
+article p{margin:0 0 17px}
+article ul,article ol{margin:0 0 18px; padding-left:22px}
+article li{margin:0 0 8px}
+.lede{font-size:19.5px}
+
+/* internal link markers */
+.xlink{font-weight:600; color:var(--ink); background:linear-gradient(transparent 62%, var(--mark-soft) 62%);
+       box-shadow:inset 0 -1px 0 var(--mark); cursor:help}
+a .xlink{color:var(--deep)}
+
+blockquote{margin:24px 0; padding:2px 0 2px 20px; border-left:3px solid var(--deep); color:var(--ink-soft); font-size:19px}
+.note{background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--mark); padding:16px 18px; margin:26px 0; font-size:17px}
+.note p:last-child{margin:0}
+.note b{font-weight:600}
+
+table{width:100%; border-collapse:collapse; margin:22px 0; font-size:16.5px; background:var(--card)}
+caption{text-align:left; font-size:14.5px; color:var(--ink-soft); padding-bottom:8px}
+th,td{border:1px solid var(--rule); padding:10px 12px; text-align:left; vertical-align:top}
+th{background:var(--deep-soft); font-weight:600}
+.scroller{overflow-x:auto}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--rule); padding:4px 0}
+.faq summary{cursor:pointer; padding:13px 0; font-weight:600; font-size:18px; list-style:none; display:flex; justify-content:space-between; gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; color:var(--deep); font-weight:400; font-size:22px; line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{margin:0 0 14px; color:var(--ink-soft)}
+
+/* related */
+.related{border-top:1px solid var(--rule); margin-top:54px; padding:34px 0 0}
+.related h2{margin-top:0}
+.rgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px; padding:0; margin:0; list-style:none}
+.rgrid a{display:block; padding:12px 14px; background:var(--card); border:1px solid var(--rule); text-decoration:none; color:var(--ink); font-size:16px}
+.rgrid a:hover{border-color:var(--deep); background:var(--deep-soft)}
+.rgrid b{display:block; color:var(--deep); font-weight:600; font-size:15px; margin-bottom:2px}
+
+footer{border-top:1px solid var(--rule); margin-top:48px; background:var(--card)}
+footer .wrap{padding:26px 24px 40px; font-size:14.5px; color:var(--ink-soft)}
+#top-btn{position:fixed; right:18px; bottom:18px; padding:10px 14px; border:1px solid var(--rule);
+  background:var(--card); color:var(--ink); border-radius:3px; font:inherit; font-size:14px; cursor:pointer;
+  opacity:0; pointer-events:none; transition:opacity .2s}
+#top-btn.show{opacity:1; pointer-events:auto}
+@media print{.toc,#top-btn,.top nav{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">Day<span>Count</span> Guides</a>
+    <nav><a href="#faq">FAQ</a><a href="#related">Other timelines</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>The 183 day rule and how tax residence is decided</h1>
+    <p class="dek">More than half a year in one country usually makes you resident there. The counting rules, the tax year used and the tie breaker tests all differ, and that is where people get caught.</p>
+    <p class="byline">Updated September 2026 &nbsp;·&nbsp; Reading time about <b>4 minutes</b> &nbsp;·&nbsp; Topic: Tax residence and travel limits</p>
+    <div class="strip">
+      <div class="strip-head"><span>Start date</span><b>180-day window</b><span>Deadline</span></div>
+      <div class="ticks" id="ticks" data-days="180" aria-hidden="true"></div>
+      <p class="strip-foot">Check which tax year applies before counting. The UK, Australia and India all start theirs on different dates.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap cols">
+  <aside class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol id="toc-list"></ol>
+  </aside>
+
+  <main>
+    <article>
+
+      <p class="lede">Spend 183 days in a country and you are likely tax resident there. That is the rule most people have heard, and the part they usually get wrong is that it is one test among several, not the whole thing.</p>
+
+      <h2 id="rule" data-short="The 183 day test">What the 183 day test says</h2>
+      <p>Most countries treat physical presence of 183 days or more in a tax year as evidence of residence. 183 is simply more than half of 365, so it identifies the country where you spent the majority of the year.</p>
+      <p>The complications start immediately after that sentence.</p>
+      <ul>
+        <li><b>Which year.</b> Some countries use the calendar year. The UK tax year runs 6 April to 5 April. Australia uses 1 July to 30 June. India uses 1 April to 31 March.</li>
+        <li><b>Which days count.</b> Many systems count any day where you were present at midnight. Some count arrival and departure days, some exclude days in transit, some count part days.</li>
+        <li><b>Rolling versus fixed.</b> The US substantial presence test looks at a weighted three year total, and Schengen visitors are measured on a rolling 180 day window rather than a fixed year.</li>
+      </ul>
+      <div class="scroller"><table>
+        <caption>How the main presence tests differ</caption>
+        <tr><th>System</th><th>Test</th><th>Period used</th></tr>
+        <tr><td>Most of Europe</td><td>183 days present</td><td>Calendar year</td></tr>
+        <tr><td>United States</td><td>Substantial presence: 31 days this year and 183 weighted over 3 years</td><td>Calendar, weighted</td></tr>
+        <tr><td>United Kingdom</td><td>Statutory Residence Test with automatic and ties tests</td><td>6 April to 5 April</td></tr>
+        <tr><td>Schengen short stay</td><td>90 days in any rolling 180 days</td><td>Rolling, recalculated daily</td></tr>
+      </table></div>
+
+      <h2 id="us" data-short="The US formula">The US substantial presence formula</h2>
+      <p>The US counts all days in the current year, one third of the days in the prior year, and one sixth of the days in the year before that. If the total reaches 183 and you were present at least 31 days in the current year, you are a resident for tax purposes.</p>
+      <p>Someone spending 120 days a year in the US every year gets 120 + 40 + 20, which is 180. Just under. Spend 125 days a year and the total is 187.5, which is over. The margin between visiting and being taxed on worldwide income is about five days a year, and plenty of people cross it without noticing.</p>
+      <div class="note"><p><b>Keep a day log.</b> Boarding passes, passport stamps and card transactions. Tax authorities in several countries now cross reference airline manifests, and the burden of proving where you were sits with you, not with them.</p></div>
+
+      <h2 id="not-enough" data-short="Beyond day counting">Why counting days is not enough</h2>
+      <p>Leaving before day 183 does not automatically make you non resident. Most systems also look at where your permanent home is, where your family lives, where your economic interests sit, and where you habitually live. The UK's Statutory Residence Test can make you resident on as few as 16 days if you have enough connecting ties.</p>
+      <p>The other half of the problem is that two countries can both claim you. That is what double tax treaties are for. Treaty tie breaker rules run in order: permanent home, then centre of vital interests, then habitual abode, then nationality, then agreement between the two authorities. Day counting only decides the entry to that process.</p>
+      <p>The "nowhere resident" plan that circulates online, where someone spends under 183 days everywhere and claims to owe tax nowhere, fails on exactly these rules. Most countries keep taxing you until you establish residence somewhere else.</p>
+
+      <h2 id="schengen" data-short="The Schengen 90/180">The Schengen 90 in 180 rule</h2>
+      <p>Different system, same number, and it is the one most travellers get wrong. Visa free visitors can spend 90 days in any rolling 180 day period across the whole Schengen area. On any given day, look back 180 days and count the days you were inside the area. If the count exceeds 90, you are overstaying.</p>
+      <p>It is not 90 days per country and it is not a fresh 90 days after leaving for a week. Days drop out of the window one at a time as they age past 180, so the allowance refills gradually rather than resetting. The same structure appears in the <strong class="xlink" data-link="90-days-from-today" data-days="90">90 day visitor allowance</strong> that most people think of as the limit.</p>
+
+      <h2 id="other180" data-short="Other 180 day rules">Other 180 day deadlines</h2>
+      <p>A 1031 property exchange in the US gives 45 days to identify replacement property and 180 days from the sale to complete, and both run at the same time rather than in sequence, so the <strong class="xlink" data-link="45-days-from-today" data-days="45">45 day identification window</strong> eats into the 180. Many passports must be valid for 6 months beyond the intended stay. Employment tribunals, warranty extensions and some insurance claim windows use 180 days. Corporate half year reporting lands here too, which is why it pairs with the <strong class="xlink" data-link="150-days-from-today" data-days="150">seasonal planning cycle</strong> in most businesses.</p>
+
+      <h2 id="practical" data-short="Practical steps">If you are near the line</h2>
+      <ol>
+        <li>Count on the correct tax year for the specific country, not the calendar year by default.</li>
+        <li>Check whether arrival and departure days count. On frequent short trips this alone can move the total by weeks.</li>
+        <li>Keep evidence for at least six years, because that is how far back several authorities can look.</li>
+        <li>Check the treaty before assuming you are safe, since day counts are only the first test.</li>
+        <li>Get advice from a tax adviser in both countries if you are within about 20 days of a threshold. This is not the area to rely on a forum answer.</li>
+      </ol>
+
+
+      <h2 id="faq" data-short="Questions">Common questions</h2>
+      <div class="faq">
+        <details><summary>Does spending 183 days in a country make you tax resident?</summary><p>In most systems it is strong evidence of residence, but it is one test among several. Home, family, economic ties and habitual residence also count, and some countries can treat you as resident on far fewer days.</p></details>
+        <details><summary>Do arrival and departure days count towards 183 days?</summary><p>It depends on the country. Many count any day where you were present at midnight, some count both travel days in full, and a few exclude days spent purely in transit.</p></details>
+        <details><summary>How does the Schengen 90 in 180 rule work?</summary><p>On any given day you look back over the previous 180 days and count the days spent inside the Schengen area. The total must not exceed 90. Days age out of the window gradually rather than resetting after a trip.</p></details>
+        <details><summary>Can you avoid tax residence by staying under 183 days everywhere?</summary><p>Generally no. Most countries continue to treat you as resident until you establish residence elsewhere, and treaty tie breaker rules use factors beyond day counts.</p></details>
+      </div>
+    </article>
+
+    <section class="related" id="related">
+      <h2>Other counting windows</h2>
+      <p>The same deadline logic shows up at different lengths. These pages cover the rest of them.</p>
+      <ul class="rgrid">
+        <li><a href="#" data-link="7-days-from-today"><b>7 days</b>One week notice at work</a></li>
+        <li><a href="#" data-link="14-days-from-today"><b>14 days</b>Two week notice periods</a></li>
+        <li><a href="#" data-link="21-days-from-today"><b>21 days</b>The 21 day habit claim</a></li>
+        <li><a href="#" data-link="28-days-from-today"><b>28 days</b>28 day pay cycles</a></li>
+        <li><a href="#" data-link="30-days-from-today"><b>30 days</b>30 day money back rules</a></li>
+        <li><a href="#" data-link="45-days-from-today"><b>45 days</b>45 day escrow closing</a></li>
+        <li><a href="#" data-link="60-days-from-today"><b>60 days</b>60 day return policies</a></li>
+        <li><a href="#" data-link="90-days-from-today"><b>90 days</b>90 day job probation</a></li>
+        <li><a href="#" data-link="120-days-from-today"><b>120 days</b>120 day shipping windows</a></li>
+        <li><a href="#" data-link="150-days-from-today"><b>150 days</b>150 day seasonal planning</a></li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer><div class="wrap">
+  <p>General information only, not legal, tax, immigration, medical or financial advice. Rules change and they differ by country, state and contract. Check the wording of your own agreement or the relevant official source before you rely on a date.</p>
+</div></footer>
+
+<button id="top-btn" type="button">Back to top</button>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"The 183 day rule and how tax residence is decided","description":"How the 183 day tax residence test works, why the counting rules differ by country, the US substantial presence formula, treaty tie breakers, and the Schengen 90 in 180 rule.","datePublished":"2026-09-16","dateModified":"2026-09-16","mainEntityOfPage":"https://example.github.io/info/days/180-days-from-today/","author":{"@type":"Organization","name":"DayCount Guides"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does spending 183 days in a country make you tax resident?","acceptedAnswer":{"@type":"Answer","text":"In most systems it is strong evidence of residence, but it is one test among several. Home, family, economic ties and habitual residence also count, and some countries can treat you as resident on far fewer days."}},{"@type":"Question","name":"Do arrival and departure days count towards 183 days?","acceptedAnswer":{"@type":"Answer","text":"It depends on the country. Many count any day where you were present at midnight, some count both travel days in full, and a few exclude days spent purely in transit."}},{"@type":"Question","name":"How does the Schengen 90 in 180 rule work?","acceptedAnswer":{"@type":"Answer","text":"On any given day you look back over the previous 180 days and count the days spent inside the Schengen area. The total must not exceed 90. Days age out of the window gradually rather than resetting after a trip."}},{"@type":"Question","name":"Can you avoid tax residence by staying under 183 days everywhere?","acceptedAnswer":{"@type":"Answer","text":"Generally no. Most countries continue to treat you as resident until you establish residence elsewhere, and treaty tie breaker rules use factors beyond day counts."}}]}]}</script>
+<script>
+(function(){
+  // day strip
+  var strip=document.getElementById('ticks');
+  if(strip){
+    var n=+strip.dataset.days, step=n>90?1:1, frag=document.createDocumentFragment();
+    for(var i=1;i<=n;i++){
+      var t=document.createElement('span'); t.className='tick';
+      if(i%30===0) t.className+=' month'; else if(i%7===0) t.className+=' week';
+      if(i===n) t.className='tick last';
+      t.style.animationDelay=(Math.min(i,120)*(420/Math.min(n,120)))+'ms';
+      t.title='Day '+i; frag.appendChild(t);
+    }
+    strip.appendChild(frag);
+  }
+  // build TOC + scrollspy
+  var art=document.querySelector('article'), toc=document.getElementById('toc-list');
+  if(art&&toc){
+    var hs=art.querySelectorAll('h2[id]'), links=[];
+    hs.forEach(function(h){
+      var li=document.createElement('li'), a=document.createElement('a');
+      a.href='#'+h.id; a.textContent=h.dataset.short||h.textContent;
+      li.appendChild(a); toc.appendChild(li); links.push(a);
+    });
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id);});
+        }
+      });
+    },{rootMargin:'-10% 0px -75% 0px'});
+    hs.forEach(function(h){spy.observe(h);});
+  }
+  // back to top
+  var btn=document.getElementById('top-btn');
+  if(btn){
+    addEventListener('scroll',function(){btn.classList.toggle('show', scrollY>900);},{passive:true});
+    btn.addEventListener('click',function(){
+      var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+      scrollTo({top:0,behavior:rm?'auto':'smooth'});
+    });
+  }
+  // one FAQ open at a time
+  var ds=document.querySelectorAll('.faq details');
+  ds.forEach(function(d){d.addEventListener('toggle',function(){
+    if(d.open) ds.forEach(function(o){if(o!==d) o.open=false;});
+  });});
+})();
+</script>
+</body>
+</html>
